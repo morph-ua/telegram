@@ -18,18 +18,18 @@ commands.use(createConversation(connect));
 
 commands.on("callback_query:data", async (ctx: MyContext) => {
     if (ctx.callbackQuery?.data?.startsWith("sync:")) {
-        await ctx.conversation.enter("connect");
+        return await ctx.conversation.enter("connect");
     } else if (ctx.callbackQuery?.data?.startsWith("reg:")) {
         const resp = await req(
             "register",
             ctx.callbackQuery.data.split(":")[1]
         );
         if (resp.status == 200) {
-            await ctx.reply(
+            return await ctx.reply(
                 "🤝 You have successfully registered. Enjoy your use!"
             );
         } else {
-            await ctx.reply(
+            return await ctx.reply(
                 "❌ Failed to register. Please try again later."
             );
         }
@@ -146,7 +146,7 @@ commands.command("list", async ctx => {
     );
 });
 
-commands.command("deleteall", async ctx => {
+commands.command("purge", async ctx => {
     const resp = await req("reset", ctx.chat.id);
 
     if (resp.status !== 200) {
