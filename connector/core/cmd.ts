@@ -86,14 +86,14 @@ commands.command("start", async ctx => {
 commands.command("help", async ctx => {
     await ctx.reply(
         `*Available commands*:
-- /start - Start the bot.
-- /help - Get help menu.
-- /new - Generate a new email address.
-- /delete - Delete the active email address.
-- /purge - Purge all active email addresses.
-- /list - Get the list of active email addresses.
-- /forward - Turn the email forwarding on/off.
-- /id - Get your Unique ID to sync between clients.`,
+• /start - Start the bot.
+• /help - Get help menu.
+• /new - Generate a new email address.
+• /delete - Delete the active email address.
+• /purge - Purge all active email addresses.
+• /list - Get the list of active email addresses.
+• /forward - Turn the email forwarding on/off.
+• /id - Get your Unique ID to sync between clients.`,
         { parse_mode: "Markdown" }
     );
 });
