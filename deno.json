@@ -1,0 +1,26 @@
+{
+    "fmt": {
+        "indentWidth": 4,
+        "lineWidth": 74,
+        "singleQuote": true,
+        "include": [
+            "./connector/**/*.ts",
+            "./deps.deno.ts"
+        ]
+    },
+    "lint": {
+        "include": [
+            "./connector/**/*.ts"
+        ],
+        "rules": {
+            "exclude": [
+                "no-explicit-any"
+            ]
+        }
+    },
+    "tasks": {
+        "edge": "deno run --allow-net --allow-env --allow-write --allow-read ./connector/edge.ts",
+        "local": "deno run --allow-net --allow-env --allow-write --allow-read ./connector/local.ts"
+    },
+    "lock": false
+}
