@@ -66,10 +66,10 @@ router.post("/send", async ctx => {
     try {
         await bot.api.sendMessage(
             body.id,
-            `Subject: ${body.message.subject}
+            n(`Subject: ${body.message.subject}
 ${body.message.from} → ${body.message.to}
 
-${n(body.message.text)}`,
+${body.message.text}`),
             options
         );
     } catch {
